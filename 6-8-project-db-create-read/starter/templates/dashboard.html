@@ -11,6 +11,11 @@
                     <h5 class="card-title">Exercise Data</h5>
                     <!-- Chart for exercise data -->
                     <p>Exercise data visualization will be here.</p>
+                    <ul>
+                        {% for entry in data %}
+                            <li>{{ entry.date }}: {{ entry.exercise }} minutes</li>
+                        {% endfor %}
+                    </ul>
                 </div>
             </div>
         </div>
@@ -20,6 +25,11 @@
                     <h5 class="card-title">Meditation Data</h5>
                     <!-- Chart for meditation data -->
                     <p>Meditation data visualization will be here.</p>
+                    <ul>
+                        {% for entry in data %}
+                            <li>{{ entry.date }}: {{ entry.meditation }} minutes</li>
+                        {% endfor %}
+                    </ul>
                 </div>
             </div>
         </div>
@@ -29,6 +39,11 @@
                     <h5 class="card-title">Sleep Data</h5>
                     <!-- Chart for sleep data -->
                     <p>Sleep data visualization will be here.</p>
+                    <ul>
+                        {% for entry in data %}
+                            <li>{{ entry.date }}: {{ entry.sleep }} hours</li>
+                        {% endfor %}
+                    </ul>
                 </div>
             </div>
         </div>

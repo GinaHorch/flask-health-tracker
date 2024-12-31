@@ -1,8 +1,23 @@
 from flask import Flask, render_template, request, redirect, url_for
+from flask_sqlalchemy import SQLAlchemy
 from forms import HealthDataForm
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///health_data.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+
+class HealthData(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.Date, nullable=False)
+    exercise = db.Column(db.Integer, nullable=False)
+    meditation = db.Column(db.Integer, nullable=False)
+    sleep = db.Column(db.Integer, nullable=False)
+
+    def __repr__(self):
+        return f'<HealthData {self.id}>'
 
 @app.route('/')
 def index():

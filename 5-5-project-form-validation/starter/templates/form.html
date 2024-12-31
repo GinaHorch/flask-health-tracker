@@ -11,18 +11,46 @@
                 <div class="form-group">
                     {{ form.date.label(class="form-label") }}
                     {{ form.date(class="form-control") }}
+                    {% if form.date.errors %}
+                        <div class="text-danger">
+                            {% for error in form.date.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     {{ form.exercise.label(class="form-label") }}
                     {{ form.exercise(class="form-control") }}
+                    {% if form.exercise.errors %}
+                        <div class="text-danger">
+                            {% for error in form.exercise.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     {{ form.meditation.label(class="form-label") }}
                     {{ form.meditation(class="form-control") }}
+                    {% if form.meditation.errors %}
+                        <div class="text-danger">
+                            {% for error in form.meditation.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     {{ form.sleep.label(class="form-label") }}
                     {{ form.sleep(class="form-control") }}
+                    {% if form.sleep.errors %}
+                        <div class="text-danger">
+                            {% for error in form.sleep.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
                 </div>
                 {{ form.submit(class="btn btn-info btn-block") }}
             </form>

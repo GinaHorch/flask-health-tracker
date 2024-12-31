@@ -6,7 +6,7 @@ app = Flask(__name__)
 def home():
     user = {'username': 'Natasha'}
     items = ['item 1', 'item 2', 'item 3']
-    return render_template('index.html', title='Home', user=user)
+    return render_template('index.html', title='Home', user=user, items=items)
 
 @app.route('/welcome')
 def welcome():

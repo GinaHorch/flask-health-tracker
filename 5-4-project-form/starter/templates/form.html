@@ -7,21 +7,23 @@
         <div class="card-body">
             <h2 class="card-title">Enter Your Health Data</h2>
             <form method="POST">
+                <!-- for CSRF protection add the hidden tag-->
+                {{ form.hidden_tag() }}
                 <div class="form-group">
-                    <!-- date label goes here -->
-                    <!-- date input goes here -->
+                    {{ form.date.label(class="form-label") }}
+                    {{ form.date(class="form-control") }}
                 </div>
                 <div class="form-group">
-                    <!-- exercise label goes here -->
-                    <!-- exercise input goes here -->
+                    {{ form.exercise.label(class="form-label") }}
+                    {{ form.exercise(class="form-control") }}
                 </div>
                 <div class="form-group">
-                    <!-- meditation label goes here -->
-                    <!-- meditation input goes here -->
+                    {{ form.meditation.label(class="form-label") }}
+                    {{ form.meditation(class="form-control") }}
                 </div>
                 <div class="form-group">
-                    <!-- sleep label goes here -->
-                    <!-- sleep input goes here -->
+                    {{ form.sleep.label(class="form-label") }}
+                    {{ form.sleep(class="form-control") }}
                 </div>
                 <!-- submit button goes here -->
             </form>

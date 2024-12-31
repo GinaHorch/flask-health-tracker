@@ -47,8 +47,12 @@ def dashboard():
     all_data = HealthData.query.all()
 
     #prepare data for charts
+    dates = [data.date.strftime("%Y-%m-%d") for data in all_data]
+    exercise_data = [data.exercise for data in all_data]
+    meditation_data = [data.meditation for data in all_data]
+    sleep_data = [data.sleep for data in all_data]
     
-    return render_template('dashboard.html', data=all_data)
+    return render_template('dashboard.html', dates=dates, exercise_data=exercise_data, meditation_data=meditation_data, sleep_data=sleep_data)
 
 if __name__ == '__main__':
     app.run(debug=True)

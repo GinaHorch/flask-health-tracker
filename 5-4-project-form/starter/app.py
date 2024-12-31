@@ -11,7 +11,7 @@ def form():
     if request.method == 'POST':
         # Process form data here
         return redirect(url_for('dashboard'))
-    return render_template('form.html')
+    return render_template('form.html', form=form)
 
 @app.route('/dashboard')
 def dashboard():

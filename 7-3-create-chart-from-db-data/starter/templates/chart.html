@@ -29,10 +29,33 @@
     </div>
     <script>
         // Pass the dates and exercise data from Flask to JavaScript
+        const dates = {{ dates|tojson }};
+        const exercise = {{ exercise|tojson }};
        
         // Get the context of the canvas element we want to select
+        const ctx = document.getElementById('myChart').getContext('2d');
         
         // Create a new Chart instance
+        const myChart = new Chart(ctx, {
+            type: 'line', 
+            data: {
+                labels: dates, 
+                datasets: [{
+                    label: 'Exercise Minutes', 
+                    data: exercise, 
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)', 
+                    borderColor: 'rgba(75, 192, 192, 1)', 
+                    borderWidth: 1 
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        })
       
     </script>
 </body>

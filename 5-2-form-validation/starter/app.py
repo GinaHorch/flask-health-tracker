@@ -7,7 +7,9 @@ app.secret_key = 'supersecretkey'
 @app.route('/form', methods=['GET', 'POST'])
 def form():
     form = MyForm()
-    if request.method == 'POST':
+    if form.validate_on_submit():
+        username = form.username.data
+        email = form.email.data
         return f"Hello, {form.username.data}!"
     return render_template('form.html', form=form)
 
